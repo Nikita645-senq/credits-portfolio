@@ -1,0 +1,998 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", serif;
+  font-size: clamp(16px, 5vw, 40px);
+  word-wrap: break-word;
+}
+img {
+  display: block;
+}
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #9564aa;
+  height: 50px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    .header-burger-menu {
+      width: 24px;
+      height: 19px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: 0.3s;
+      span {
+        background-color: white;
+        height: 2px !important;
+        width: 100%;
+        transition: 0.3s;
+      }
+      span:nth-child(1).active {
+        position: absolute;
+        transform: rotate(127deg);
+        width: 100%;
+        transition: 0.3s;
+      }
+      span:nth-child(2).active {
+        position: absolute;
+        opacity: 0%;
+        transition: 0.3s;
+      }
+      span:nth-child(3).active {
+        position: absolute;
+        transform: rotate(-127deg);
+        width: 100%;
+        transition: 0.3s;
+      }
+    }
+    .header-burger-menu.active {
+      position: relative;
+      transition: 0.3s;
+      top: 20%;
+      cursor: pointer;
+    }
+    .header-left {
+      display: none;
+    }
+    .header-right {
+      span {
+        display: none;
+      }
+      .header-premium {
+        span {
+          display: none;
+        }
+        .dia-header {
+          user-select: none;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.burger-drop-menu-content {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  .burger-drop-menu {
+    border-top: 5px solid #9b75b0;
+    max-width: 100%;
+    padding-top: 70px;
+    padding-bottom: 180px;
+    padding-left: 15px;
+    background-color: #9564aa;
+    display: none;
+    .burger-drop-menu-container {
+      max-width: 100%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-size: clamp(28px, 5vw, 36px);
+      span {
+        cursor: pointer;
+      }
+      div {
+        border-radius: 10px;
+        color: #ffcf2d;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        background-color: #684677;
+        width: 192px;
+        cursor: pointer;
+        height: 55px;
+      }
+    }
+  }
+}
+
+.outOfCredits {
+  .outOfCredits-container {
+    max-width: 100%;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profile-board {
+      display: none;
+    }
+    .outOfCredits-title {
+      width: 90%;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: start;
+      div {
+        width: 100%;
+        height: 2px;
+        background-color: #9564aa;
+        opacity: 20%;
+      }
+    }
+    .mobileSlaider {
+      margin-top: 23px;
+      width: 80%;
+      height: 30px;
+      .mobileSlaider-container {
+        border-radius: 10px;
+        background-color: #9564AA1A;
+        border: 2px #9564AA solid;
+        width: 100%;
+        height: 60px;
+        font-weight: 700;
+        &:hover {
+            background-color: #9564AA;
+            color: white;
+        }
+        .mobileSlaider-main {
+          display: flex;
+          position: relative;
+          justify-content: center;
+          width: 100%;
+          height: inherit;
+          user-select: none;
+          cursor: pointer;
+          .oneTime {
+            position: absolute;
+            top: 30%;
+            left: -23px;
+            background-color: #ffcf2d;
+            border-radius: 5px;
+            font-weight: 700;
+            padding: 4px 10px 4px 10px;
+            color: black;
+            display: none;
+          }
+          &:hover {
+            justify-content: end;
+            width: 95%;
+
+            .oneTime {
+                display: block;
+                font-size: 14px;
+            }
+          }
+          div {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 24px;
+            span:nth-child(1) {
+              display: flex;
+              font-weight: 700;
+              gap: 3px;
+              align-items: center;
+              div {
+                font-weight: 700;
+                background-color: #ffcf2d;
+                border-radius: 50%;
+                width: 17px;
+                height: 17px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: black;
+                font-size: 8px;
+                margin-left: 2px;
+              }
+            }
+            span:nth-child(2) {
+            }
+            span:nth-child(3) {
+              display: flex;
+              gap: 5px;
+            }
+          }
+        }
+        .slaid2, .slaid3, .slaid4, .slaid5, .slaid6 {
+            display: none;
+        }
+        .mobileSlaider-circles {
+          display: flex;
+          gap: 8px;
+          width: 100%;
+          margin-top: 10px;
+          justify-content: center;
+          pointer-events: none;
+          span:nth-child(1) {
+            background-color: red;
+          }
+          span {
+            width: 7px;
+            height: 7px;
+            background-color: #ffc500;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .btn-try-now {
+      margin-top: 100px;
+      width: 90%;
+      min-height: 65px;
+      background-color: #FFCF2D;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      cursor: pointer;
+      span {
+        
+      }
+    }
+    .checkbox-try {
+      width: 90%;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: 20px;
+      .inp-check {
+        display: none;
+      }
+      .custom-check {
+        display: flex;
+        align-items: center;
+        div {
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border: solid 1px #9564AA;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        }
+        .img-inp {
+          height: 12px;
+          user-select: none;
+        }
+        div.active {
+        width: 25px;
+        height: 25px;
+        background-color: #9564AA;
+        padding: 3px;
+        }
+      }
+      div {
+        font-size: clamp(10px, 4vw, 16px);
+        span {
+          color: #9564AA;
+        }
+      }
+    }
+    .mob-big-diamond {
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+    .mob-function-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 50vh;
+      div {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        div {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: #f0f0f0;
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+        span {
+          font-size: clamp(12px, 4vw, 15px);
+        }
+      }
+    }
+  }
+}
+.balls-left {
+  display: none;
+}
+.balls-right {
+  display: none;
+}
+@media screen and (min-width: 600px) {
+  .header {
+    background-color: #9564aa;
+    height: 100px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 85%;
+      .header-burger-menu {
+        width: 24px;
+        height: 19px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .header-left {
+        display: block;
+        span {
+          font-size: clamp(16px, 5vw, 48px);
+          font-weight: 700;
+        }
+      }
+      .header-right {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        font-size: clamp(16px, 2.5vw, 24px);
+        span {
+          font-size: none;
+          display: block;
+          cursor: pointer;
+        }
+        .header-premium {
+          display: flex;
+          gap: 10px;
+          background-color: #684677;
+          border-radius: 10px;
+          padding: 6px 13px 6px 13px;
+          cursor: pointer;
+          span {
+            display: block;
+            color: #ffcf2d;
+          }
+        }
+      }
+    }
+  }
+  .burger-drop-menu-content {
+    display: none;
+  }
+  .mobileSlaider {
+    display: none;
+  }
+  .outOfCredits {
+    .outOfCredits-container {
+      max-width: 100%;
+      padding-top: 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: start;
+      flex-wrap: wrap;
+      gap: 30px;
+      .outOfCredits-title {
+        width: 90%;
+        font-weight: 700;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        div {
+          width: 100%;
+          height: 2px;
+          background-color: #9564aa;
+          opacity: 20%;
+        }
+      }
+      .desk-version {
+        width: 100%;
+        .desk-version-container {
+          display: flex;
+          .profile-board {
+            display: none;
+          }
+          .desk-version-main-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 90%;
+            padding-left: 25px;
+            .outOfCredits-title {
+              width: 100%;
+              font-weight: 700;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              align-items: start;
+              text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+              div {
+                width: 100%;
+                height: 2px;
+                background-color: #9564aa;
+                opacity: 20%;
+              }
+            }
+            .big-banner {
+              background-color: #C15CA1;
+              min-height: 85px;
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: center;
+              gap: 15px;
+              border-radius: 15px;
+              
+              span {
+                font-weight: 700;
+                color: #FFCF2D;
+                text-shadow:
+                -1px -1px 0 white, 
+                1px -1px 0 white,  
+                -1px 1px 0 white,  
+                1px 1px 0 white;;
+                padding-top: 10px;
+                font-size: clamp(26px, 4.2vw, 40px);
+              }
+              .saw {
+                text-shadow: none;
+                font-size: clamp(18px, 2.5vw, 28px);
+                color: white;
+              }
+              .taimer {
+                background-color: white;
+                border-radius: 5px;
+                width: 40%;
+                min-height: 56px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 10px;
+                span {
+                  color: black;
+                  text-shadow: none;
+                  font-weight: 400;
+                }
+              }
+            }
+            .boxes-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 30px;
+              width: 100%;
+              .box {
+                font-weight: 700;
+                min-width: 160px;
+                flex: 1 1 10%;
+                min-height: 123px;
+                border: 2px solid #9564AA;
+                background-color: rgba(242, 233, 247, 0.4);
+                border-radius: 10px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                align-items: center;
+                cursor: pointer;
+                &:hover {
+                  background-color: #9564AA;
+                  .box-btn {
+                    background-color: #FFCF2D;
+                    span {
+                      color: black;
+                      opacity: 100%;
+                    }
+                  }
+                  .box-num {
+                    
+                    span {
+                      color: white;
+                    }
+                    div {
+                      color: black;
+                    }
+                  }
+                  .box-hover {
+                    width: 120px;
+                    min-height: 23px;
+                    position: absolute;
+                    background-color: #FFCF2D;
+                    border-radius: 5px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    top: -14px;
+                  }
+                  span {
+                    font-size: 14px;
+                    font-weight: 700;
+                  }
+                }
+                .box-hover {
+                  display: none;
+                }
+                .box-num {
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  span {
+                    font-size: 24px;
+                    color: black;
+                  }
+                  div {
+                      font-size: 8px;
+                      color: black;
+                      width: 17px;
+                      min-height: 17px;
+                      background-color: #FFCF2D;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      border-radius: 50%;
+                  }
+                }
+                .box-btn {
+                  background-color: white;
+                  border-radius: 5px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 120px;
+                  min-height: 52px;
+                  span {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #000000;
+                    opacity: 20%;
+                  }
+                }
+              }
+            }
+            .checkbox-tryCom {
+              width: 90%;
+              display: flex;
+              gap: 15px;
+              align-items: center;
+              margin-top: 20px;
+              .inp-check {
+                display: none;
+              }
+              .custom-check {
+                display: flex;
+                align-items: center;
+                div {
+                width: 25px;
+                height: 25px;
+                background-color: white;
+                border: solid 1px #9564AA;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                }
+                .img-inp {
+                  height: 12px;
+                  user-select: none;
+                }
+                div.active {
+                width: 25px;
+                height: 25px;
+                background-color: #9564AA;
+                padding: 3px;
+                }
+              }
+              div {
+                font-size: clamp(10px, 4vw, 16px);
+                span {
+                  color: #9564AA;
+                }
+              }
+            }
+            .big-diamond-com {
+              margin-top: 50px;
+              max-width: 100%;
+              padding-bottom: 100px;
+              .big-diamond-com-container {
+                max-width: 100%;
+                display: flex;
+                justify-content: center;
+                .big-diamond-com-column {
+                  display: flex;
+                  flex-direction: column;
+                  font-size: clamp(12px, 2vw, 17px);
+                  gap: 30px;
+                  .first {
+                    display: flex;
+                    justify-content: center;
+                    .first-trs {
+                      width: 30%;
+                    }
+                    .first-tr {
+                      width: 30%;
+                      span {
+                        width: 95%;
+                      }
+                    }
+                    div {
+                      display: flex;
+                      flex-direction:column;
+                      align-items: center;
+                      text-align: center;
+                      gap: 5px;
+                      
+                      div {
+                        width: 50px;
+                        min-height: 50px;
+                        max-height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #f0f0f0;
+                        cursor: pointer;
+                        &:hover {
+                          background-color: #FFCF2D; 
+                          //не понятно какой hover именно ставить
+                          //поставил цвет как описано в ТЗ 
+                        }
+                        img {
+                          width: 20px;
+                          height: 20px;
+                        }
+                      }
+                      .sa {
+                        min-height: 50px;
+                      }
+                      span {
+                        width: 70%;
+                      }
+                    }
+                  }
+                  .sec-third-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    .second {
+                      display: flex;
+                      .second-th {
+                        flex-basis: 20%;
+                      }
+                      div {
+                        display: flex;
+                        flex-direction:column;
+                        align-items: center;
+                        text-align: center;
+                        gap: 5px;
+                        flex: 1;
+                        div {
+                          width: 50px;
+                          min-height: 50px;
+                          max-height: 50px;
+                          border-radius: 50%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          background-color: #f0f0f0;
+                          cursor: pointer;
+                          &:hover {
+                            background-color: #FFCF2D; 
+                            //не понятно какой hover именно ставить
+                            //поставил цвет как описано в ТЗ 
+                          }
+                          img {
+                            width: 20px;
+                            height: 20px;
+                          }
+                        }
+                        span {
+                          width: 70%;
+                        }
+                      }
+                      .big-diamond-final {
+                        img {
+                          width: 129px;
+                          height: 107px;
+                        }
+                      }
+                    }
+                    .third {
+                      display: flex;
+                      justify-content: center;
+                      .th-f {
+                        width: 29%;
+                      }
+                      .th-s {
+                        width: 30%;
+                      }
+                      div {
+                        display: flex;
+                        flex-direction:column;
+                        align-items: center;
+                        text-align: center;
+                        gap: 5px;
+                        div {
+                          width: 50px;
+                          min-height: 50px;
+                          max-height: 50px;
+                          border-radius: 50%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          background-color: #f0f0f0;
+                          cursor: pointer;
+                          &:hover {
+                            background-color: #FFCF2D; 
+                            //не понятно какой hover именно ставить
+                            //поставил цвет как описано в ТЗ 
+                          }
+                          img {
+                            width: 20px;
+                            height: 20px;
+                          }
+                        }
+                        span {
+                          width: 100%;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 776px) {
+  .desk-version-container {
+    justify-content: center;
+  }
+}
+// версия где добавляется профиль слева
+@media screen and (min-width: 1250px) {
+  .header {
+    .header-container {
+      width: 73%;
+    }
+  }
+  .outOfCredits {
+    .outOfCredits-container {
+      .desk-version {
+        width: 100%;
+        .desk-version-container {
+          display: flex;
+          gap: 30px;
+          justify-content: center;
+          .profile-board {
+            display: block !important;
+            width: 270px;
+            height: 880px;
+            border: #9564AA33 solid 2px;
+            border-radius: 10px;
+            background-color: rgba(242, 233, 247, 0.4);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), 
+            -5px -5px 10px rgba(255, 255, 255, 0.6);
+            .profile-board-container {
+              display: flex;
+              flex-direction: column;
+              max-width: 100%;
+              align-items: center;
+              padding-top: 20px;
+              .profile-brd {
+                border-bottom: solid 2px rgba(149, 100, 170, 0.2);
+                width: 90%;
+              }
+              .profile {
+                width: 90%;
+                justify-content: start;
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                padding-bottom: 20px;
+                .profile-face {
+                  border: 2px solid white;
+                  border-radius: 50%;
+                  width: 69px;
+                  height: 69px;
+                  img {
+                    width: 100%;
+                    min-height: 100%;
+                  }
+                }
+                .profile-name {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                  span {
+                    font-weight: 700;
+                    font-size: clamp(16px, 1.5vw, 26px);
+                  }
+                  div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 86px;
+                    min-height: 21px;
+                    background-color: #684677;
+                    border-radius: 5px;
+                    color: white;
+                    cursor: pointer;
+                    span {
+                      font-size: clamp(10px, 0.8vw, 13px);
+                      padding: 5px;
+                    }
+                  }
+                }
+              }
+              .profile-btns {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                padding-top: 20px;
+                width: 80%;
+                align-items: start;
+                div {
+                  display: flex;
+                  gap: 30px;
+                  align-items: center;
+                  cursor: pointer;
+                  img {
+                    width: 22px;
+                    height: 22px;
+                  }
+                  span {
+                    font-size: clamp(16px, 1.5vw, 26px);
+                  }
+                }
+              }
+            }
+          }
+          .desk-version-main-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 60%;
+            padding-left: 25px;
+            .outOfCredits-title {
+              width: 100%;
+              font-weight: 700;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              align-items: start;
+              text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+              div {
+                width: 100%;
+                height: 2px;
+                background-color: #9564aa;
+                opacity: 20%;
+              }
+            }
+            .big-banner {
+              background-color: #C15CA1;
+              min-height: 85px;
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: center;
+              gap: 30px;
+              border-radius: 15px;
+              
+              span {
+                font-weight: 700;
+                color: #FFCF2D;
+                text-shadow:
+                -1px -1px 0 white, 
+                1px -1px 0 white,  
+                -1px 1px 0 white,  
+                1px 1px 0 white;;
+                padding-top: 0px;
+                font-size: clamp(26px, 4.2vw, 40px);
+              }
+              .saw {
+                text-shadow: none;
+                font-size: clamp(18px, 2.5vw, 28px);
+                color: white;
+              }
+              .taimer {
+                background-color: white;
+                border-radius: 5px;
+                width: 25%;
+                min-height: 56px;
+                display: flex;
+                margin-bottom: 0px;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                span {
+                  color: black;
+                  text-shadow: none;
+                  font-weight: 400;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// версия где добавляется профиль слева
+
+// добавляются шарики
+@media screen and (min-width: 1920px) {
+  .outOfCredits {
+    .outOfCredits-container {
+      max-width: 100%;
+      padding-top: 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: start;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      .desk-version {
+        position: relative;
+        .balls-left {
+          display: block;
+          position: absolute;
+          top: 25%;
+          z-index: -1;
+          left: -1.5%;
+        }
+        .balls-right {
+          display: block;
+          position: absolute;
+          top: 20%;
+          right: 2%;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+// добавляются шарики
